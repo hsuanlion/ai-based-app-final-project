@@ -17,11 +17,14 @@ def emotionDetector():
     sadness = response['sadness']
     dominant_emotion = response['dominant_emotion']
 
-    response_text = f""For the given statement, the system response is 'anger' \
-    : {anger}, 'disgust' : {disgust}, 'fear' : {fear}, 'joy' : {'joy'} \
-    and 'sadness' : {sadness}. The dominant emotion is {dominant_emotion}.""
+    if dominant_emotion is None:
+        response_text = "Invalid text! Please try again!"
+    else:
+        response_text = f"""For the given statement, the system response is 'anger' \
+        : {anger}, 'disgust' : {disgust}, 'fear' : {fear}, 'joy' : {'joy'} \
+        and 'sadness' : {sadness}. The dominant emotion is {dominant_emotion}."""
 
-    return render_template('index', response_text = response_text)
+    return render_template('index', system_response = response_text)
 
 
 if __name__ == '__main__':
