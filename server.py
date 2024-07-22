@@ -1,5 +1,9 @@
 '''
-    docstring
+Emotion Detection Server
+
+This script defines a Flask-based server for performing emotion detection on user-provided text.
+
+Author(Learner): [Hsuan Lee]
 '''
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
@@ -9,7 +13,7 @@ app = Flask(__name__)
 @app.route('/emotionDetector')
 def emotion_detect():
     '''
-    docstring
+    Analyze the user-provided text for emotions and return the result.
     '''
     text_to_analyze = request.args.get('textToAnalyze')
 
